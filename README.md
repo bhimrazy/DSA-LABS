@@ -4,9 +4,9 @@
 
 ### Lab Contents
 
-- [Lab 1.Implementation of Stack](/Lab1-Implementation of Stack/README.md)
-- [Lab 2.Implementation of LinearQueue](/Lab2-Implementation of LinearQueue/README.md)
-- [Lab 3-Implementation of CircularQueue](/Lab3-Implementation of CircularQueue/README.md)
+- [Lab 1.Implementation of Stack](https://github.com/bhimrazy/DSA-LABS/tree/main/Lab1-Implementation%20of%20Stack)
+- [Lab 2.Implementation of LinearQueue](https://github.com/bhimrazy/DSA-LABS/tree/main/Lab2-Implementation%20of%20LinearQueue)
+- [Lab 3-Implementation of CircularQueue](https://github.com/bhimrazy/DSA-LABS/tree/main/Lab3-Implementation%20of%20CircularQueue)
 
 ## Usage
 
