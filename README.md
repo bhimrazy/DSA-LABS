@@ -2,10 +2,11 @@
 
 ## Lab Practice - C++ Implementation of Data Structure and Algorithm
 
-\*[Lab Contents]
+- [ Lab Contents ]
 
-- [Lab 1.Implementation of Stack](Lab1-Implementation of Stack/stack.md)
-- [Lab 2.Implementation of LinearQueue](Lab2-Implementation of LinearQueue/linearqueue.md)
+* [ Lab 1.Implementation of Stack ]( Lab1-Implementation of Stack/README.md )
+* [ Lab 2.Implementation of LinearQueue ]( Lab2-Implementation of LinearQueue/README.md )
+* [ Lab 3-Implementation of CircularQueue ]( Lab3-Implementation of CircularQueue/README.md )
 
 ## Usage
 
