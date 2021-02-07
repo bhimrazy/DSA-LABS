@@ -53,6 +53,8 @@ public:
     }
     Type Front() //returns front element of Queue
     {
+        if (isEmpty())     //condition to check if Queue is empty or not.
+            throw Empty(); //throw Empty exception
         return arr[front];
     }
     bool isEmpty() //returns if the Queue is empty or not
