@@ -1,5 +1,19 @@
 # Stack Implementation in c++
 
+Last-In-First-Out
+
+- Insertion ->Top
+- Deletion ->Top
+
+## Operations
+
+1. Push(x) : Adds an item in the stack
+2. Pop() : Removes an item from the stack
+3. Top() : Get the top item from the stack
+4. Display() : Print all item of the stack
+5. IsEmpty() : Checks if the stack is empty or not.
+6. IsFull() : Checks if the stack is full or not.
+
 ## Time Complexity of Stack
 
 > <p>
@@ -22,13 +36,13 @@ template <class Type>
 class Stack
 {
 private:
-    Type st[MAX]; //stack:array of type Type
-    int Top;      //index of Top of stack
+    Type arr[MAX]; //stack:array of type Type
+    int top;       //index of top of stack
 
 public:
     Stack() //constructor
     {
-        Top = -1;
+        top = -1;
     }
     // Exceptions
     class Full //exception class for full stack
@@ -40,33 +54,39 @@ public:
     //Member Functions
     void push(Type var) //push numbers on stack
     {
-        if (Top >= MAX - 1) //condition to check if stack is full or not.
+        if (top >= MAX - 1) //condition to check if stack is full or not.
             throw Full();   //throw Full exception
-        st[++Top] = var;
+        arr[++top] = var;
     }
     Type pop()
     {
-        if (Top < 0)       //condition to check if stack is empty or not.
+        if (isEmpty())     //condition to check if stack is empty or not.
             throw Empty(); //throw Empty exception
-        return st[Top--];
+        return arr[top--];
     }
-    Type top() //returns top element of stack
+    Type Top() //returns top element of stack
     {
-        return st[Top];
+        if (isEmpty())     //condition to check if stack is empty or not.
+            throw Empty(); //throw Empty exception
+        return arr[top];
     }
     bool isEmpty() //returns if the stack is empty or not
     {
-        return (Top == -1) ? true : false;
+        return (top == -1) ? true : false;
+    }
+    bool isFull() //returns if the Queue is empty or not
+    {
+        return (top >= MAX - 1) ? true : false;
     }
     void display() //prints all the elements of stack
     {
-        if (Top < 0) //condition to check if stack is empty or not.
+        if (top < 0) //condition to check if stack is empty or not.
             throw Empty();
 
         cout << "\n--------------------Stack--------------------\n";
-        for (int i = Top; i >= 0; i--)
+        for (int i = top; i >= 0; i--)
         {
-            cout << st[i] << endl;
+            cout << arr[i] << endl;
         }
         cout << "\n--------------------End--------------------\n";
     }
@@ -81,17 +101,17 @@ int main()
             cout << "\n Stack is Empty" << endl;
         }
         s.push(2);
-        cout << "\n Top Element:" << s.top() << endl;
+        cout << "\n Top Element:" << s.Top() << endl;
         s.display();
         s.push(3);
-        cout << "\n Top Element:" << s.top() << endl;
+        cout << "\n Top Element:" << s.Top() << endl;
         s.display();
         s.push(4);
-        cout << "\n Top Element:" << s.top() << endl;
+        cout << "\n Top Element:" << s.Top() << endl;
         s.display();
-        s.pop();
+        cout << "\n Popped Element:" << s.pop();
         s.display();
-        cout << "\n Top Element:" << s.top() << endl;
+        cout << "\n Top Element:" << s.Top() << endl;
     }
     catch (Stack<int>::Full)
     {
@@ -105,13 +125,13 @@ int main()
     return 0;
 }
 
+
 ```
 
 ##Output of above program
 
 ```
 Stack is Empty
-
 
  Top Element:2
 
@@ -137,6 +157,7 @@ Stack is Empty
 
 --------------------End--------------------
 
+ Popped Element:4
 --------------------Stack--------------------
 3
 2
