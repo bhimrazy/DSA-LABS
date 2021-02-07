@@ -1,17 +1,17 @@
 # LinearQueue Implementation in c++
 
 First-In-First-Out
-Insertion ->Rear/Tail
-Insertion ->Front/Head
+-Insertion ->Rear/Tail
+-Deletion ->Front/Head
 
 ## Operations
 
-*Enqueue(x): Addition of an element to the queue
-*Dequeue():Removal of an element from the queue
-*Front():Get the front element from the queue
-*Display(): Print all element of the queue
-*IsEmpty():Checks if the queue is empty or not.
-*IsFull():Checks if the queue is full or not.
+-Enqueue(x): Addition of an element to the queue
+-Dequeue():Removal of an element from the queue
+-Front():Get the front element from the queue
+-Display(): Print all element of the queue
+-IsEmpty():Checks if the queue is empty or not.
+\*IsFull():Checks if the queue is full or not.
 
 ## Time Complexity of LinearQueue
 
@@ -21,7 +21,7 @@ Insertion ->Front/Head
 
 </p>
 
-### C++ Implementation of Stack
+### C++ Implementation of LinearQueue
 
 ```c++
 #include <iostream>
