@@ -1,17 +1,18 @@
 # LinearQueue Implementation in c++
 
 First-In-First-Out
--Insertion ->Rear/Tail
--Deletion ->Front/Head
+
+- Insertion ->Rear/Tail
+- Deletion ->Front/Head
 
 ## Operations
 
--Enqueue(x): Addition of an element to the queue
--Dequeue():Removal of an element from the queue
--Front():Get the front element from the queue
--Display(): Print all element of the queue
--IsEmpty():Checks if the queue is empty or not.
-\*IsFull():Checks if the queue is full or not.
+1. Enqueue(x): Addition of an element to the queue
+2. Dequeue():Removal of an element from the queue
+3. Front():Get the front element from the queue
+4. Display(): Print all element of the queue
+5. IsEmpty():Checks if the queue is empty or not.
+   \*IsFull():Checks if the queue is full or not.
 
 ## Time Complexity of LinearQueue
 
@@ -139,7 +140,7 @@ int main()
 
 ```
 
-##Output of above program
+## Output of above program
 
 ```
 Queue is Empty
@@ -173,7 +174,8 @@ Queue is Empty
 ### Notes
 
 > <p>
-> Incase of **Overflow** -> Create a larger array (double the size of previous) and then copy all the elements.
-> Inorder to prevent memoryleak we can implement it using circular queue.
+
+- Incase of **Overflow** -> Create a larger array (double the size of previous) and then copy all the elements.
+- Inorder to prevent memoryleak we can implement it using circular queue.
 
 </p>
