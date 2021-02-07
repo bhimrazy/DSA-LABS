@@ -38,11 +38,11 @@ public:
     {
         return st[Top];
     }
-    bool empty() //returns if the stack is empty or not
+    bool isEmpty() //returns if the stack is empty or not
     {
         return (Top == -1) ? true : false;
     }
-    void dispaly() //prints all the elements of stack
+    void display() //prints all the elements of stack
     {
         if (Top < 0) //condition to check if stack is empty or not.
             throw Empty();
@@ -60,21 +60,21 @@ int main()
     Stack<int> s;
     try
     {
-        if (s.empty())
+        if (s.isEmpty())
         {
             cout << "\n Stack is Empty" << endl;
         }
         s.push(2);
         cout << "\n Top Element:" << s.top() << endl;
-        s.dispaly();
+        s.display();
         s.push(3);
         cout << "\n Top Element:" << s.top() << endl;
-        s.dispaly();
+        s.display();
         s.push(4);
         cout << "\n Top Element:" << s.top() << endl;
-        s.dispaly();
+        s.display();
         s.pop();
-        s.dispaly();
+        s.display();
         cout << "\n Top Element:" << s.top() << endl;
     }
     catch (Stack<int>::Full)
