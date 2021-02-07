@@ -19,9 +19,8 @@ Last-In-First-Out
 > <p>
 
     Push - O(1)->Best Case
-
-     - O(n)->Worst Case
-     - O(1)->Average Case
+         - O(n)->Worst Case
+         - O(1)->Average Case
 
 </p>
 
