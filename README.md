@@ -7,6 +7,8 @@
 - [Lab 1.Implementation of Stack](https://github.com/bhimrazy/DSA-LABS/tree/main/Lab1-Implementation%20of%20Stack)
 - [Lab 2.Implementation of LinearQueue](https://github.com/bhimrazy/DSA-LABS/tree/main/Lab2-Implementation%20of%20LinearQueue)
 - [Lab 3-Implementation of CircularQueue](https://github.com/bhimrazy/DSA-LABS/tree/main/Lab3-Implementation%20of%20CircularQueue)
+- [Lab 4-Implementations of Linked List: Singly Linked List](https://github.com/bhimrazy/DSA-LABS/tree/main/Lab3-Implementation%20of%20CircularQueue)
+- [Lab 5-Implementations of Linked List: Doubly Linked List](https://github.com/bhimrazy/DSA-LABS/tree/main/Lab3-Implementation%20of%20CircularQueue)
 
 ## Usage
 
