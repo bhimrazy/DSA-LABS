@@ -23,6 +23,9 @@ Dynamic List
 
 > <p>
 
+         Access/Search - O(n)->Worst Case/Average Case
+         Insertion/Delrtion - O(n)->Worst Case/Average Case
+
 </p>
 
 ## C++ Implementation of SinglyLinked List
