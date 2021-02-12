@@ -21,13 +21,13 @@ Dynamic List
 
 ## Time Complexity of DoublyLinked List
 
-> <p>
-> | Operation  	                |Time Complexity: Worst Case   	|Time Complexity: Average Case   	|	
-> |---	                        |---	                        |---	                            |   		
-> | Insert at beginning or end  	|   	    O(1)                |   	        O(1)                |
-> | Delete at beginning or end    |   	    O(1)                |               O(1) 	            |      	   	
-> |Search   	                    |   	    O(n)                |   	        O(n)                |
-> |Access   	                    |           O(n)                |               O(n)                |
+ <p>
+| Operation  	                |Time Complexity: Worst Case   	|Time Complexity: Average Case   	|	
+|---	                        |---	                        |---	                            |   		
+| Insert at beginning or end  	|   	    O(1)                |   	        O(1)                |
+| Delete at beginning or end    |   	    O(1)                |               O(1) 	            |      	   	
+|Search   	                    |   	    O(n)                |   	        O(n)                |
+|Access   	                    |           O(n)                |               O(n)                |
 
 </p>
 
