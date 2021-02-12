@@ -5,10 +5,17 @@ The Fibonacci numbers are the numbers in the following integer sequence.
 
 In mathematical terms, the sequence Fn of Fibonacci numbers is defined by the recurrence relation
 
+```
 Fn = Fn-1 + Fn-2
+```
+
 with seed values
 
+```
 F0 = 0 and F1 = 1.
+```
+
+## C++ Implementation of Fibonacci Series
 
 ```c++
 #include <iostream>
