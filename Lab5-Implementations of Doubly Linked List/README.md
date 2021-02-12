@@ -1,19 +1,57 @@
+# DoublyLinked List Implementation in c++
+
+Dynamic List
+
+- Insertion ->Start/AnyPosition/End
+- Deletion ->Start/AnyPosition/End
+
+## Operations
+
+1.  InsertionAtBeginning(x) :
+2.  InsertionAtEnd(x) :
+3.  InsertionBefore(x,y) :
+4.  InsertionAfter(x,y) :
+5.  IsEmpty() :
+6.  InLinkedList() :
+7.  HeadIsAt() :
+8.  DeletionAtBeginning(x) :
+9.  DeletionAtEnd(x) :
+10. DeletionBefore(x,y) :
+11. DeletionAfter(x,y) :
+
+## Time Complexity of DoublyLinked List
+
+> <p>
+> | Operation  	                |Time Complexity: Worst Case   	|Time Complexity: Average Case   	|	
+> |---	                        |---	                        |---	                            |   		
+> | Insert at beginning or end  	|   	    O(1)                |   	        O(1)                |
+> | Delete at beginning or end    |   	    O(1)                |               O(1) 	            |      	   	
+> |Search   	                    |   	    O(n)                |   	        O(n)                |
+> |Access   	                    |           O(n)                |               O(n)                |
+
+</p>
+
+## C++ Implementation of DoublyLinked List
+
+```c++
 #include <iostream>
 using namespace std;
 
 template <class Type> //structure template
-struct Node           //Linked list Node
+/* Node of a doubly linked list */
+struct Node
 {
-    Type data;  //data item
-    Node *next; //pointer to next link
+    int data;
+    struct Node *next; // Pointer to next node
+    struct Node *prev; // Pointer to previous node
 };
 template <class Type> //class template
-class LinkedList
+class DoublyLinkedList
 {
 private:
     Node<Type> *Head, *newNode; //pointer to head
 public:
-    LinkedList() //constructor
+    DoublyLinkedList() //constructor
     {
         Head = NULL;
     }
@@ -30,17 +68,20 @@ public:
         if (isEmpty())            //check for head is null
         {
             newNode->next = NULL; //it points to null
+            newNode->prev = NULL;
         }
         else
         {
             newNode->next = Head; //it points to head
+            Head->prev = newNode;
+            newNode->prev = NULL;
         }
 
         Head = newNode; //head points to new node
     }
     void insertBefore(Type before, Type item) //insert data before
     {
-        if (!inLinkedList(before)) //check if data exist in list or not
+        if (!inDoublyLinkedList(before)) //check if data exist in list or not
             throw NotExist();
         newNode = new Node<Type>; //create new node
         newNode->data = item;     //set data to item
@@ -52,16 +93,21 @@ public:
             temp = temp->next;
         }
         newNode->next = temp;
+        temp->prev = newNode;
         if (Head->data != before)
+        {
             prev->next = newNode;
+            newNode->prev = prev;
+        }
         else
         {
+            newNode->prev = NULL;
             Head = newNode;
         }
     }
     void insertAfter(Type after, Type item) //insert data after
     {
-        if (!inLinkedList(after)) //check if data exist in list or not
+        if (!inDoublyLinkedList(after)) //check if data exist in list or not
             throw NotExist();
         newNode = new Node<Type>; //create new node
         newNode->data = item;     //set data to item
@@ -70,8 +116,13 @@ public:
         {
             temp = temp->next;
         }
+        newNode->prev = temp;
         newNode->next = temp->next;
         temp->next = newNode;
+        if (newNode->next != NULL)
+        {
+            newNode->next->prev = newNode;
+        }
     }
     void insertAtEnd(Type item) //insert data at end
     {
@@ -81,6 +132,7 @@ public:
         if (isEmpty()) //check for head is null
         {
             Head = newNode;
+            newNode->prev = NULL;
         }
         else
         {
@@ -89,6 +141,7 @@ public:
             {
                 temp = temp->next;
             }
+            newNode->prev = temp;
             temp->next = newNode;
         }
     }
@@ -99,13 +152,35 @@ public:
         else
         {
             Node<Type> *temp = Head;
-            cout << "\n---------------Linked List---------------\n";
+            cout << "\n---------------DoublyLinked List---------------\n";
             while (temp != NULL)
             {
                 cout << temp->data << "\t";
                 temp = temp->next;
             }
-            cout << "\n--------------------END--------------------\n";
+            cout << "\n-----------------------END---------------------\n";
+        }
+    }
+    void displayFromEnd() //display all the items from end
+    {
+        if (isEmpty())     //check if linked list is empty
+            throw Empty(); //throw exception
+        else
+        {
+            Node<Type> *temp = Head;
+            Node<Type> *prev1 = temp;
+            cout << "\n---------------DoublyLinked List From End---------------\n";
+            while (temp != NULL)
+            {
+                prev1 = temp;
+                temp = temp->next;
+            }
+            while (prev1 != NULL)
+            {
+                cout << prev1->data << "\t";
+                prev1 = prev1->prev;
+            }
+            cout << "\n---------------------------END---------------------------\n";
         }
     }
     void removeFromBeginning()
@@ -117,6 +192,7 @@ public:
         {
             Node<Type> *temp = Head;
             Head = Head->next;
+            Head->prev = NULL;
             delete temp;
         }
     }
@@ -140,10 +216,11 @@ public:
     }
     void removeAfter(Type after)
     {
-        if (!inLinkedList(after)) //check if data exist in list or not
+        if (!inDoublyLinkedList(after)) //check if data exist in list or not
             throw NotExist();
         Node<Type> *temp = Head;
         Node<Type> *temp1 = temp;
+        Node<Type> *temp2 = temp;
         while (temp->data != after)
         {
             temp = temp->next;
@@ -151,14 +228,20 @@ public:
         if (temp->next == NULL)
             throw NotExist();
         temp1 = temp->next;
-        temp->next = temp1->next;
+        if (temp1->next != NULL)
+        {
+            temp2 = temp1->next;
+            temp2->prev = temp;
+        }
+        temp->next = temp2;
+
         delete temp1;
     }
     bool isEmpty()
     {
         return (Head == NULL) ? true : false;
     }
-    bool inLinkedList(Type item)
+    bool inDoublyLinkedList(Type item)
     {
         if (isEmpty())     //check if linked list is empty
             throw Empty(); //throw exception
@@ -182,12 +265,12 @@ public:
 
 int main()
 {
-    LinkedList<int> list;
+    DoublyLinkedList<int> list;
     try
     {
         if (list.isEmpty())
         {
-            cout << "\nLinkedList is Empty\n";
+            cout << "\nDoublyLinkedList is Empty\n";
         }
         list.insertAtBeginning(2);
         cout << "\nHead is at: " << list.headIsAt() << endl;
@@ -222,29 +305,143 @@ int main()
         list.removeFromBeginning();
         cout << "\nHead is at: " << list.headIsAt() << endl;
         list.display();
+        list.displayFromEnd();
         list.removeAfter(8);
         cout << "\nHead is at: " << list.headIsAt() << endl;
         list.display();
         list.removeAfter(0);
         cout << "\nHead is at: " << list.headIsAt() << endl;
         list.display();
-        list.removeAfter(4);
+        // list.removeAfter(4);
         cout << "\nHead is at: " << list.headIsAt() << endl;
         list.display();
         list.removeFromEnd();
         cout << "\nHead is at: " << list.headIsAt() << endl;
         list.display();
+        list.displayFromEnd();
         list.removeAfter(9);
         cout << "\nHead is at: " << list.headIsAt() << endl;
         list.display();
     }
-    catch (LinkedList<int>::Empty)
+    catch (DoublyLinkedList<int>::Empty)
     {
-        cout << "\nException: LinkedList is Empty" << endl;
+        cout << "\nException: DoublyLinkedList is Empty" << endl;
     }
-    catch (LinkedList<int>::NotExist)
+    catch (DoublyLinkedList<int>::NotExist)
     {
         cout << "\nException: Data doesn't exist in this Linked List" << endl;
     }
     return 0;
 }
+
+
+```
+
+## Output of above program
+
+```
+DoublyLinkedList is Empty
+
+Head is at: 2
+
+---------------DoublyLinked List---------------
+2
+-----------------------END---------------------
+
+Head is at: 0
+
+---------------DoublyLinked List---------------
+0	2
+-----------------------END---------------------
+
+Head is at: 5
+
+---------------DoublyLinked List---------------
+5	0	2
+-----------------------END---------------------
+
+Head is at: 9
+
+---------------DoublyLinked List---------------
+9	5	0	2
+-----------------------END---------------------
+
+Head is at: 9
+
+---------------DoublyLinked List---------------
+9	5	0	2	8
+-----------------------END---------------------
+
+Head is at: 9
+
+---------------DoublyLinked List---------------
+9	5	0	2	8	4
+-----------------------END---------------------
+
+Head is at: 9
+
+---------------DoublyLinked List---------------
+9	5	0	2	8	4	6
+-----------------------END---------------------
+
+Head is at: 9
+
+---------------DoublyLinked List---------------
+9	5	0	2	0	8	4	6
+-----------------------END---------------------
+
+Head is at: 9
+
+---------------DoublyLinked List---------------
+9	5	0	2	0	8	0	4	6
+-----------------------END---------------------
+
+Head is at: 5
+
+---------------DoublyLinked List---------------
+5	0	2	0	8	0	4	6
+-----------------------END---------------------
+
+Head is at: 0
+
+---------------DoublyLinked List---------------
+0	2	0	8	0	4	6
+-----------------------END---------------------
+
+---------------DoublyLinked List From End---------------
+6	4	0	8	0	2	0
+---------------------------END---------------------------
+
+Head is at: 0
+
+---------------DoublyLinked List---------------
+0	2	0	8	4	6
+-----------------------END---------------------
+
+Head is at: 0
+
+---------------DoublyLinked List---------------
+0	0	8	4	6
+-----------------------END---------------------
+
+Head is at: 0
+
+---------------DoublyLinked List---------------
+0	0	8	4	6
+-----------------------END---------------------
+
+Head is at: 0
+
+---------------DoublyLinked List---------------
+0	0	8	4
+-----------------------END---------------------
+
+---------------DoublyLinked List From End---------------
+4	8	0	0
+---------------------------END---------------------------
+
+Exception: Data doesn't exist in this Linked List
+
+```
+
+## Notes
