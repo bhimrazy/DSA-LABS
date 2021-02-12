@@ -7,6 +7,8 @@ Factorial can be calculated using following recursive formula.
   n! = 1 if n = 0 or n = 1
 ```
 
+## C++ Implementation of Factorial
+
 ```c++
 #include <iostream>
 using namespace std;
