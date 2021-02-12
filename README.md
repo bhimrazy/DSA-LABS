@@ -8,7 +8,8 @@
 - [Lab 2.Implementation of LinearQueue](https://github.com/bhimrazy/DSA-LABS/tree/main/Lab2-Implementation%20of%20LinearQueue)
 - [Lab 3-Implementation of CircularQueue](https://github.com/bhimrazy/DSA-LABS/tree/main/Lab3-Implementation%20of%20CircularQueue)
 - [Lab 4-Implementations of Linked List: Singly Linked List](https://github.com/bhimrazy/DSA-LABS/tree/main/Lab4-Implementations%20of%20Singly%20Linked%20List)
-<!-- - [Lab 5-Implementations of Linked List: Doubly Linked List](https://github.com/bhimrazy/DSA-LABS/tree/main/Lab3-Implementation%20of%20CircularQueue) -->
+- [Lab 5-Implementations of Linked List: Doubly Linked List](https://github.com/bhimrazy/DSA-LABS/tree/main/Lab5-Implementations%20of%20Doubly%20Linked%20List)
+- [Lab 6-Fibonacci Series Implementation in c++](https://github.com/bhimrazy/DSA-LABS/tree/main/Lab6-Fibonacci%20Series)
 
 ## Usage
 
