@@ -22,6 +22,8 @@ Shift last disk from 'A' to 'C'.
 Shift 'n-1' disks from 'B' to 'C'.
 ```
 
+## C++ Implementation of Tower Of Hanoi
+
 ```c++
 #include <iostream>
 using namespace std;
