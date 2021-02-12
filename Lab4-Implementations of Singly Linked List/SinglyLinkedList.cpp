@@ -15,7 +15,7 @@ private:
 public:
     LinkedList() //constructor
     {
-        Head = NULL;
+        Head = NULL; //set head to null
     }
     class Empty //exception class for empty Linked list
     {

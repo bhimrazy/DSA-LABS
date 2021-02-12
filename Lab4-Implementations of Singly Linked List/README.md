@@ -71,7 +71,7 @@ public:
 
         Head = newNode; //head points to new node
     }
-    void insertBefore(Type before, Type item) //insert data at beginning
+    void insertBefore(Type before, Type item) //insert data before
     {
         if (!inLinkedList(before)) //check if data exist in list or not
             throw NotExist();
